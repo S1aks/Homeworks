@@ -74,13 +74,13 @@ public class Main {
                     boolean stopShowLetters = false;        // Переменная для вывода отгаданных букв
                     int index = 0;                          // Счетчик выведеных символов
                     while (index < 15) {                    // Запуск цикла вывода 15-ти символов
-                        if (index >= userWord.length()) {   // Проверка если счетчик больше длины введённого слова
-                            stopShowLetters = true;         //      то перестаем выводить буквы и выводим '#'
-                        }
+                        if (index >= userWord.length() || index >= word.length()) {   // Проверка если счетчик больше
+                            stopShowLetters = true;         //     длины введённого или загаданного слова то перестаем
+                        }                                   //     выводить буквы и выводим '#'
                         if (!stopShowLetters) {             // Если можно выводить буквы
                             char letter = userWord.charAt(index);   // Берём букву из слова пользователя на месте index
                             if (letter != word.charAt(index)) {     // Сверяем с буквой загаданного слова
-                                stopShowLetters = true;             // Если не совпадают то не выводим больше буквы
+                                System.out.print("#");              // Если не совпадают то не выводим больше буквы
                             } else {
                                 System.out.print(letter);           // Иначе выводим совпавшую букву
                             }

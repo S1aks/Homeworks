@@ -74,7 +74,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunManager" selected="Application.WarShips">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="homework03.Main" />
       <module name="lesson03" />
@@ -100,8 +100,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.WarShips" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.WarShips" />
       </list>
     </recent_temporary>
   </component>
