@@ -55,6 +55,7 @@ public class Main {
     }
 
     private static void printMap() {
+        System.out.println();
         for (int i = 0; i < SIZE; i++) {
             System.out.print("\t" + (i+1));
         }
