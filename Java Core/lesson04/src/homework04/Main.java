@@ -28,7 +28,7 @@ public class Main {
     public static void main(String[] args) {
         initMap();
         printMap();
-        boolean humanTurn = true;   // Переключатель действующего игрока (человек или нет сейчас ходит?)
+        boolean humanTurn = false;   // Переключатель действующего игрока (человек или нет сейчас ходит?)
         while (true) {              //     чтобы не гонять дважды в одном цикле одни и те же процедуры
             doTurn(humanTurn);
             printMap();
@@ -102,10 +102,24 @@ public class Main {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
                 if (map[i][j] == DOT_EMPTY) {
+                    x = j;
+                    y = i;
+                    map[i][j] = DOT_O;
+                    if (checkWin(false)) {
+                        return;     // <----------- Выход, если нейдена комбинация, в которой компьютер выиграет с
+                    } else {        //              установкой в неё хода компьютера
+                        map[i][j] = DOT_EMPTY;
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                if (map[i][j] == DOT_EMPTY) {
+                    x = j;
+                    y = i;
                     map[i][j] = DOT_X;
                     if (checkWin(true)) {
-                        x = j;
-                        y = i;
                         map[i][j] = DOT_O;
                         return;     // <----------- Выход, если нейдена комбинация, в которой человек выиграет с
                     } else {        //              установкой в неё хода компьютера
