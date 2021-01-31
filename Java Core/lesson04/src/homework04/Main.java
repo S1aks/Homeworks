@@ -28,7 +28,7 @@ public class Main {
     public static void main(String[] args) {
         initMap();
         printMap();
-        boolean humanTurn = false;   // Переключатель действующего игрока (человек или нет сейчас ходит?)
+        boolean humanTurn = true;   // Переключатель действующего игрока (человек или нет сейчас ходит?)
         while (true) {              //     чтобы не гонять дважды в одном цикле одни и те же процедуры
             doTurn(humanTurn);
             printMap();
@@ -106,7 +106,7 @@ public class Main {
                     y = i;
                     map[i][j] = DOT_O;
                     if (checkWin(false)) {
-                        return;     // <----------- Выход, если нейдена комбинация, в которой компьютер выиграет с
+                        return;     // <----------- Выход, если найдена комбинация, в которой компьютер выиграет с
                     } else {        //              установкой в неё хода компьютера
                         map[i][j] = DOT_EMPTY;
                     }
@@ -121,7 +121,7 @@ public class Main {
                     map[i][j] = DOT_X;
                     if (checkWin(true)) {
                         map[i][j] = DOT_O;
-                        return;     // <----------- Выход, если нейдена комбинация, в которой человек выиграет с
+                        return;     // <----------- Выход, если найдена комбинация, в которой человек выиграет с
                     } else {        //              установкой в неё хода компьютера
                         map[i][j] = DOT_EMPTY;
                     }
@@ -169,7 +169,7 @@ public class Main {
     private static boolean checkSlashDiagonal(char checkChar) {
         int solidLineDotsCounter = 0;
         int checkX, checkY;
-        if ((x + y) < SIZE) {  // Проверка координат хода и утановка цикла проверки в верхнюю точку диагонали
+        if ((x + y) < SIZE) {  // Проверка координат хода и установка цикла проверки в верхнюю точку диагонали
             checkX = x + y;
             checkY = 0;
         } else {
@@ -191,7 +191,7 @@ public class Main {
     private static boolean checkBackSlashDiagonal(char checkChar) {
         int solidLineDotsCounter = 0;
         int checkX, checkY;
-        if (x > y) {  // Проверка координат хода и утановка цикла проверки в верхнюю точку диагонали
+        if (x > y) {  // Проверка координат хода и установка цикла проверки в верхнюю точку диагонали
             checkX = x - y;
             checkY = 0;
         } else {
