@@ -41,6 +41,7 @@ public class Box <T extends Fruit> {
 
     public void intersperseFruitsToBox (Box<T> newBox) {
         newBox.boxContent.addAll(this.boxContent);
+        boxContent.clear();
         System.out.println("Короб \"" + name + "\" пересыпали в короб \"" + newBox.name + "\"");
     }
 }
