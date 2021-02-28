@@ -18,7 +18,7 @@ public class Box <T extends Fruit> {
         boxContent.add(newFruit);
         System.out.println("В короб \"" + name + "\" добавлен" // Ниже операторы для красивого вывода
                 + (newFruit.getName().charAt(newFruit.getName().length() - 1) == 'о' ? "о " :
-                  (newFruit.getName().charAt(newFruit.getName().length() - 1) == 'а' ? "а " : " ")) // На случай поямления груши
+                  (newFruit.getName().charAt(newFruit.getName().length() - 1) == 'а' ? "а " : " ")) // На случай появления груши
                 + newFruit.getName());
     }
 
@@ -41,6 +41,7 @@ public class Box <T extends Fruit> {
 
     public void intersperseFruitsToBox (Box<T> newBox) {
         newBox.boxContent.addAll(this.boxContent);
+        this.weight = 0;
         boxContent.clear();
         System.out.println("Короб \"" + name + "\" пересыпали в короб \"" + newBox.name + "\"");
     }
