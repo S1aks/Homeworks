@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Алгоритмы и структуры</title>
+	<style type="text/css">
+		body {
+			margin: 50pt;
+			font-family: 'Times New Roman', Times, serif; /* Гарнитура текста */ 
+    		font-size: 14pt;
+		}
+		p,pre {
+			
+		}
+	</style>
+</head>
+<body>
+<p>Задание 1.1: Приведите пример алгоритмов и структур данных из жизни.
+
+<p>В реальной жизни очень много алгоритмов. В самолете у пилота для взлета и посадки свои порядки действий (алгоритмы), для пассажиров в случае чп на борту бортпроводники каждый раз перед взлетом показывают алгоритм поведения в чрезвычайной ситуации. Для получения денег свой алгоритм (вставить карту - набрать пин-код - выбрать действие получение наличных - набрать сумму - забрать карту - забрать деньги - завершить сеанс).. и т.д.
+<p>Сруктуры данных в жизни присутствуют практически везде. Список учеников в журнале, ячейки в банке, места на автостоянке, номера кабинетов в поликлиннике, полки с книгами в библиотеке.
+<p>----------------------------------------------------------------------
+<p>Задание 1.2: Приведите пример алгоритмов и структур данных в программировании.
+
+<p>Алгоритм поиска максимального или минимального значения в списке, алгоритм нахождения среднего числа из массива чисел и др..
+<p>Структуры данных в программировании (в Java): массивы, списки, связные списки, деревья, хэш-мапы, связанные хэш-мапы...
+<p>----------------------------------------------------------------------
+<p>Задание 1.3: Напишите программный код, в котором все данные хранятся только в переменных трех типов данных: Ссылочные, примитивные и своего класса содержащего: конструктор и метод отображения данных.
+<br>Выведите написанные данные.
+
+<code><pre>package com.example;
+
+public class Main {
+	public static void main(String[] args) {
+		NumNumbers numNumbers = new NumNumbers("Числа", 20);
+		numNumbers.printArray();
+	}
+}
+
+public class NumNumbers {
+	int minimalNumber;
+	boolean findMinNumber;
+	String name;
+	int[] arrayNumbers;
+
+	public NumNumbers(String name, int quantity) {
+		minimalNumber = 0;
+		findMinimalNumber = false;
+		this.name = name;
+		new arrayNumbers[quantity];
+		for (int i = 0; i < quantity; i++) {
+			arrayNumbers[i] = (int) ((Math.random() * 100);
+		}
+	}
+
+	public void printArray() {
+		System.out.println("Массив данных: " + Arrays.toString(arrayNumbers));
+	}	
+}</pre></code>
+<p>----------------------------------------------------------------------
+<p>Задание 1.4: Дополните предыдущий код сравнением ваших данных с другой переменной, данный код должен имитировать простейший поиск перебором.
+<br>Оцените время выполнения алгоритма с помощью базового метода System.nanoTime().
+
+<code><pre>package com.example;
+
+public class Main {
+	public static void main(String[] args) {
+		NumNumbers numNumbers = new NumNumbers("Числа", 20);
+		numNumbers.printArray();
+		long startTime = System.nanoTime();
+		numNumbers.compareNumber(55);
+		long endTime = System.nanoTime();
+		System.out.println("Наносекунд затрачено на поиск: " + (endTime - startTime));
+	}
+}
+
+public class NumNumbers {
+	int minimalNumber;
+	boolean findNumber;
+	String name;
+	int[] arrayNumbers;
+
+	public NumNumbers(String name, int quantity) {
+		minimalNumber = 99;
+		findMinimalNumber = false;
+		this.name = name;
+		new arrayNumbers[quantity];
+		for (int i = 0; i < quantity; i++) {
+			arrayNumbers[i] = (int) ((Math.random() * 100);
+			if (minimalNumber > arrayNumbers[i]) {
+				minimalNumber = arrayNumbers[i];
+			}
+		}
+	}
+
+	public void printArray() {
+		System.out.println("Массив данных: " + Arrays.toString(arrayNumbers));
+	}
+
+	public void compareNumber(int number) {
+		for (int i = 0; i < arrayNumbers.length; i++) {
+			if (arrayNumbers[i] == number) {
+				findNumber = true;
+			}
+		}
+		if (findNumber) {
+			System.out.println("Число " + number + " найдено в массиве.");
+		} else {
+			System.out.println("Число " + number + " не найдено в массиве.");
+		}
+	}
+}</pre></code>
+</body>
+</html>
