@@ -235,7 +235,7 @@ class MyDoubleLinkedList<T> {
     }
 
     public boolean isEmpty() {
-        return (first == null);
+        return (first == null || last == null);
     }
 
     public void add(T value) {
