@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d56a9d58-631f-46a3-af92-a1c1885bd059" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Java algorithms/homework06/.idea/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Java algorithms/homework06/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Java algorithms/homework06/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Java algorithms/homework06/.idea/project-template.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Java algorithms/homework06/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Java algorithms/homework06/homework06.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Java algorithms/homework06/src/com/hw/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/project-template.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework03.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/hw/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="d56a9d58-631f-46a3-af92-a1c1885bd059" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
