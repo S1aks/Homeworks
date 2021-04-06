@@ -1,17 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1f7bc6d-c3e3-4ff8-93ea-3881825755d2" name="Default Changelist" comment="" />
+    <list default="true" id="fcf5096f-aff1-47bb-9723-d10c5e4a8ce8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework08.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework08.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/hw/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../homework06/homework06.html" beforeDir="false" afterPath="$PROJECT_DIR$/../homework06/homework06.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../homework07/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../homework07/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../homework07/homework07.html" beforeDir="false" afterPath="$PROJECT_DIR$/../homework07/homework07.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Java architecture/homework05/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Java architecture/homework05/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectId" id="1qh9sEXYSIXDTBcvioRe7JM7Ma6" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1qhuyY8EyQWIOSUyAw0lWztJN7L" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
@@ -72,12 +96,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.hw.Main" />
-      <module name="homework05" />
+      <module name="homework08" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
@@ -94,11 +119,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b1f7bc6d-c3e3-4ff8-93ea-3881825755d2" name="Default Changelist" comment="" />
-      <created>1617521160254</created>
+      <changelist id="fcf5096f-aff1-47bb-9723-d10c5e4a8ce8" name="Default Changelist" comment="" />
+      <created>1617544398367</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1617521160254</updated>
+      <updated>1617544398367</updated>
     </task>
     <servers />
   </component>
