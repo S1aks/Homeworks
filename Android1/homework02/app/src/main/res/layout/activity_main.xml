@@ -192,15 +192,15 @@
         android:text="@string/_point"
         android:textSize="36sp"
         app:cornerRadius="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/button_result"
+        app:layout_constraintEnd_toStartOf="@+id/button_clear"
         app:layout_constraintStart_toEndOf="@+id/button0"
         app:layout_constraintTop_toBottomOf="@+id/button8" />
 
     <Button
-        android:id="@+id/button_result"
+        android:id="@+id/button_clear"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:text="@string/_result"
+        android:text="@string/_clear"
         android:textSize="36sp"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toStartOf="@+id/button_divide"
@@ -216,7 +216,18 @@
         android:textSize="36sp"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_result"
+        app:layout_constraintStart_toEndOf="@+id/button_clear"
         app:layout_constraintTop_toBottomOf="@+id/button_multiply" />
+
+    <Button
+        android:id="@+id/button_result"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:text="@string/_result"
+        android:textSize="36sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/button_divide"
+        app:layout_constraintStart_toStartOf="@+id/button_divide"
+        app:layout_constraintTop_toBottomOf="@+id/button_divide" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
