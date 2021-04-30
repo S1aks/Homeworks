@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context=".MainActivity">
 
 
@@ -21,9 +21,9 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="300dp"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="30dp"
         android:background="#FFFFFF"
         android:gravity="end"
         android:text="@string/_textTextView"
@@ -36,7 +36,7 @@
         android:id="@+id/button1"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="140dp"
         android:layout_marginTop="15dp"
         android:text="@string/_1"
         android:textSize="36sp"
@@ -74,7 +74,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="140dp"
         android:text="@string/_plus"
         android:textSize="36sp"
         app:cornerRadius="10dp"
@@ -86,7 +86,7 @@
         android:id="@+id/button4"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="140dp"
         android:text="@string/_4"
         android:textSize="36sp"
         app:cornerRadius="10dp"
@@ -120,7 +120,7 @@
         android:id="@+id/button_minus"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="140dp"
         android:text="@string/_minus"
         android:textSize="36sp"
         app:cornerRadius="10dp"
@@ -132,7 +132,7 @@
         android:id="@+id/button7"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="140dp"
         android:text="@string/_7"
         android:textSize="36sp"
         app:cornerRadius="10dp"
@@ -166,7 +166,7 @@
         android:id="@+id/button_multiply"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="140dp"
         android:text="@string/_multiply"
         android:textSize="36sp"
         app:cornerRadius="10dp"
@@ -178,7 +178,7 @@
         android:id="@+id/button0"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="140dp"
         android:text="@string/_0"
         android:textSize="36sp"
         app:cornerRadius="10dp"
@@ -212,11 +212,11 @@
         android:id="@+id/button_divide"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginEnd="40dp"
+
         android:text="@string/_divide"
         android:textSize="36sp"
         app:cornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/button_result"
         app:layout_constraintStart_toEndOf="@+id/button_clear"
         app:layout_constraintTop_toBottomOf="@+id/button_multiply" />
 
@@ -224,11 +224,11 @@
         android:id="@+id/button_result"
         android:layout_width="70dp"
         android:layout_height="70dp"
+        android:layout_marginEnd="70dp"
         android:text="@string/_result"
         android:textSize="36sp"
         app:cornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/button_divide"
-        app:layout_constraintStart_toStartOf="@+id/button_divide"
-        app:layout_constraintTop_toBottomOf="@+id/button_divide" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_multiply"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

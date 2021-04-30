@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String KEY_STATE = "CALC";
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8,
             button9, button_point, button_plus, button_minus, button_multiply, button_divide,
             button_result, button_clear;
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        getSupportActionBar().hide();
         initView();
     }
 
@@ -52,21 +53,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void addDigit(String digit) {
         if (calc.getCurrentOperation() == Calc.Operation.NONE) {
-            if (calc.getFirstNumber() == null && !Calc.pointed) {
+            if (calc.getFirstNumber() == null && !calc.pointed) {
                 if (!digit.equals("0")) {
-                    Calc.bufferString = digit;
+                    calc.bufferString = digit;
                 } else return;
             } else {
-                Calc.bufferString += digit;
+                calc.bufferString += digit;
             }
             calc.setFirstNumber(Double.parseDouble(calc.bufferString));
         } else {
-            if (calc.getSecondNumber() == null && !Calc.pointed) {
+            if (calc.getSecondNumber() == null && !calc.pointed) {
                 if (!digit.equals("0")) {
-                    Calc.bufferString = digit;
+                    calc.bufferString = digit;
                 } else return;
             } else {
-                Calc.bufferString += digit;
+                calc.bufferString += digit;
             }
             calc.setSecondNumber(Double.parseDouble(calc.bufferString));
         }
@@ -177,21 +178,21 @@ public class MainActivity extends AppCompatActivity {
         button_point.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!Calc.bufferString.contains(".")) {
+                if (!calc.bufferString.contains(".")) {
                     if (calc.getCurrentOperation() == Calc.Operation.NONE) {
                         if (calc.getFirstNumber() == null) {
-                            Calc.bufferString = "0.";
+                            calc.bufferString = "0.";
                         } else {
-                            Calc.bufferString += ".";
+                            calc.bufferString += ".";
                         }
                     } else {
                         if (calc.getSecondNumber() == null) {
-                            Calc.bufferString = "0.";
+                            calc.bufferString = "0.";
                         } else {
-                            Calc.bufferString += ".";
+                            calc.bufferString += ".";
                         }
                     }
-                    Calc.pointed = true;
+                    calc.pointed = true;
                     textView.setText(calc.bufferString);
                 }
                 lastTouchResult = false;
@@ -266,7 +267,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
                     }
                     DecimalFormat df = new DecimalFormat("#.#########");
-                    Calc.bufferString = df.format(calc.getResult());
+                    calc.bufferString = df.format(calc.getResult());
                     calc.setFirstNumber(calc.getResult());
                     calc.setResult(null);
                     textView.setText(calc.bufferString);
@@ -280,11 +281,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putParcelable(KEY_STATE, calc);
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+        calc = savedInstanceState.getParcelable(KEY_STATE);
+        textView.setText(calc.bufferString);
     }
 
     @Override
