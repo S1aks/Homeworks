@@ -124,25 +124,4 @@ public class Calc implements Parcelable {
     public void setResult(Double result) {
         this.result = result;
     }
-
-    public Double calcResult() {
-        if (firstNumber == null || secondNumber == null) {
-            return null;
-        }
-        switch (currentOperation) {
-            case PLUS:
-                result = firstNumber + secondNumber;
-                return result;
-            case MINUS:
-                result = firstNumber - secondNumber;
-                return result;
-            case MULTIPLY:
-                result = firstNumber * secondNumber;
-                return result;
-            case DIVIDE:
-                result = firstNumber / secondNumber;
-                return result;
-        }
-        return null;
-    }
 }
