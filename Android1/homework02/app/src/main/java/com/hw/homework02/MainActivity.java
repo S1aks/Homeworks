@@ -1,5 +1,6 @@
 package com.hw.homework02;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
@@ -8,7 +9,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import java.util.Objects;
 
@@ -16,38 +16,46 @@ public class MainActivity extends AppCompatActivity {
     private static final String KEY_STATE = "CALC";
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8,
             button9, button_point, button_plus, button_minus, button_multiply, button_divide,
-            button_result, button_clear, buttonNightMode, buttonMyTheme;
+            button_result, button_clear, buttonSettings;
     TextView textView;
-    Calc calc = new Calc();
+    private int themeId;
+    private Calc calc = new Calc();
     boolean lastTouchResult;
-    boolean nightMode;
 
-    private static final String PreferenceKey = "THEME";
-    private static final String MyThemeKey = "SET_MY_THEME";
+    protected static final String PreferenceKey = "THEME";
+    protected static final String MyThemeKey = "SET_THEME";
+    protected static final int REQUEST_CODE = 44;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getSetMyTheme()) {
-            setTheme(R.style.MyTheme);
-        } else {
-            setTheme(R.style.Theme_Homework02);
-        }
+        SharedPreferences pref = getSharedPreferences(PreferenceKey, MODE_PRIVATE);
+        themeId = pref.getInt(MyThemeKey, 0);
+        doSetTheme(themeId);
         setContentView(R.layout.activity_main);
         Objects.requireNonNull(getSupportActionBar()).hide();
         initView();
     }
 
-    private boolean getSetMyTheme() {
-        SharedPreferences pref = getSharedPreferences(PreferenceKey, MODE_PRIVATE);
-        return pref.getBoolean(MyThemeKey, false);
+    private void doSetTheme(int themeId) {
+        switch (themeId) {
+            case 0:
+                setTheme(R.style.Theme_MaterialComponents_DayNight_DarkActionBar);
+                break;
+            case 1:
+                setTheme(R.style.Theme_Homework02);
+                break;
+            case 2:
+                setTheme(R.style.MyTheme);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + themeId);
+        }
     }
 
     private void initView() {
-        // Получить пользовательские элементы по идентификатору
-        buttonNightMode = findViewById(R.id.buttonNightMode);
-        buttonMyTheme = findViewById(R.id.buttonMyTheme);
+        buttonSettings = findViewById(R.id.buttonSettings);
         button0 = findViewById(R.id.button0);
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
@@ -68,24 +76,24 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.textView);
         buttonsInitOnClickListeners();
         lastTouchResult = false;
-        nightMode = false;
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode != REQUEST_CODE) {
+            super.onActivityResult(requestCode, resultCode, data);
+            return;
+        }
+
+        if (resultCode == RESULT_OK) {
+            recreate();
+        }
     }
 
     private void buttonsInitOnClickListeners() {
-        buttonNightMode.setOnClickListener(v -> {
-            if (nightMode) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            }
-            nightMode = !nightMode;
-            SharedPreferences pref = getSharedPreferences(PreferenceKey, MODE_PRIVATE);
-            pref.edit().putBoolean(MyThemeKey, false).apply();
-        });
-        buttonMyTheme.setOnClickListener(v -> {
-            SharedPreferences pref = getSharedPreferences(PreferenceKey, MODE_PRIVATE);
-            pref.edit().putBoolean(MyThemeKey, true).apply();
-            recreate();
+        buttonSettings.setOnClickListener(v -> {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            intent.putExtra(PreferenceKey, themeId);
+            startActivityForResult(intent, REQUEST_CODE);
         });
         button0.setOnClickListener(v -> {
             if (lastTouchResult) {
@@ -206,7 +214,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
 
     @Override

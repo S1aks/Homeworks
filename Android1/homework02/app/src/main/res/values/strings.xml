@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">homework03</string>
+    <string name="app_name">homework05</string>
     <string name="textTextView">0</string>
     <string name="_0">0</string>
     <string name="_1">1</string>
@@ -20,6 +20,10 @@
     <string name="clear">C</string>
     <string name="errorString">Cannot be divided by zero</string>
     <string name="imgDescription">img</string>
-    <string name="nightMode">☀</string>
     <string name="myTheme">My Theme</string>
+    <string name="themeSelect">Theme select</string>
+    <string name="lightTheme">Light Theme</string>
+    <string name="darkTheme">Dark Theme</string>
+    <string name="applyButtonText">Apply</string>
+    <string name="settingsButtonText">Settings</string>
 </resources>
