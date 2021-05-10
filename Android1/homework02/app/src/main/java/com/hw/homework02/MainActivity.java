@@ -12,12 +12,26 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
     private static final String KEY_STATE = "CALC";
-    Button button0, button1, button2, button3, button4, button5, button6, button7, button8,
-            button9, button_point, button_plus, button_minus, button_multiply, button_divide,
-            button_result, button_clear;
+    Button button0;
+    Button button1;
+    Button button2;
+    Button button3;
+    Button button4;
+    Button button5;
+    Button button6;
+    Button button7;
+    Button button8;
+    Button button9;
+    Button buttonPoint;
+    Button buttonPlus;
+    Button buttonMinus;
+    Button buttonMultiply;
+    Button buttonDivide;
+    Button buttonResult;
+    Button buttonClear;
     TextView textView;
-    Calc calc = new Calc();
-    boolean lastTouchResult;
+    private Calc calc = new Calc();
+    private boolean lastTouchResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +53,13 @@ public class MainActivity extends AppCompatActivity {
         button7 = findViewById(R.id.button7);
         button8 = findViewById(R.id.button8);
         button9 = findViewById(R.id.button9);
-        button_point = findViewById(R.id.button_point);
-        button_plus = findViewById(R.id.button_plus);
-        button_minus = findViewById(R.id.button_minus);
-        button_multiply = findViewById(R.id.button_multiply);
-        button_divide = findViewById(R.id.button_divide);
-        button_result = findViewById(R.id.button_result);
-        button_clear = findViewById(R.id.button_clear);
+        buttonPoint = findViewById(R.id.buttonPoint);
+        buttonPlus = findViewById(R.id.buttonPlus);
+        buttonMinus = findViewById(R.id.buttonMinus);
+        buttonMultiply = findViewById(R.id.buttonMultiply);
+        buttonDivide = findViewById(R.id.buttonDivide);
+        buttonResult = findViewById(R.id.buttonResult);
+        buttonClear = findViewById(R.id.buttonClear);
         textView = findViewById(R.id.textView);
         buttonsInitOnClickListeners();
         lastTouchResult = false;
@@ -175,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
                 lastTouchResult = false;
             }
         });
-        button_point.setOnClickListener(new View.OnClickListener() {
+        buttonPoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!calc.bufferString.contains(".")) {
@@ -198,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
                 lastTouchResult = false;
             }
         });
-        button_clear.setOnClickListener(new View.OnClickListener() {
+        buttonClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.clear();
@@ -206,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
                 lastTouchResult = false;
             }
         });
-        button_plus.setOnClickListener(new View.OnClickListener() {
+        buttonPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.setCurrentOperation(Calc.Operation.PLUS);
@@ -216,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
                 lastTouchResult = false;
             }
         });
-        button_minus.setOnClickListener(new View.OnClickListener() {
+        buttonMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.setCurrentOperation(Calc.Operation.MINUS);
@@ -226,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
                 lastTouchResult = false;
             }
         });
-        button_multiply.setOnClickListener(new View.OnClickListener() {
+        buttonMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.setCurrentOperation(Calc.Operation.MULTIPLY);
@@ -236,7 +250,7 @@ public class MainActivity extends AppCompatActivity {
                 lastTouchResult = false;
             }
         });
-        button_divide.setOnClickListener(new View.OnClickListener() {
+        buttonDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.setCurrentOperation(Calc.Operation.DIVIDE);
@@ -246,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
                 lastTouchResult = false;
             }
         });
-        button_result.setOnClickListener(new View.OnClickListener() {
+        buttonResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!lastTouchResult) {
