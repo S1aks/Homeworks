@@ -69,7 +69,13 @@ public class Calc implements Parcelable {
         dest.writeByte((byte) (pointed ? 1 : 0));
     }
 
-    enum Operation {NONE, PLUS, MINUS, MULTIPLY, DIVIDE}
+    enum Operation {
+        NONE,
+        PLUS,
+        MINUS,
+        MULTIPLY,
+        DIVIDE}
+
     private Double firstNumber;
     private Double secondNumber;
     private Operation currentOperation;

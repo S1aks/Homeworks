@@ -1,0 +1,4 @@
+com/hw/homework05/MainActivity.java
+ com.hw.homework05.MainActivity
+com/hw/homework05/BuildConfig.java
+ com.hw.homework05.BuildConfig
