@@ -3,6 +3,8 @@ package com.hw.homework02;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.text.DecimalFormat;
+
 public class Calc implements Parcelable {
 
 
@@ -131,24 +133,74 @@ public class Calc implements Parcelable {
         this.result = result;
     }
 
-    public Double calcResult() {
-        if (firstNumber == null || secondNumber == null) {
-            return null;
+    public String addDigit(String digit) {
+        if (getCurrentOperation() == Operation.NONE) {
+            if (getFirstNumber() == null && !pointed) {
+                if (!digit.equals("0")) {
+                    bufferString = digit;
+                } else return bufferString;
+            } else {
+                bufferString += digit;
+            }
+            setFirstNumber(Double.parseDouble(bufferString));
+        } else {
+            if (getSecondNumber() == null && !pointed) {
+                if (!digit.equals("0")) {
+                    bufferString = digit;
+                } else return bufferString;
+            } else {
+                bufferString += digit;
+            }
+            setSecondNumber(Double.parseDouble(bufferString));
         }
-        switch (currentOperation) {
+        return bufferString;
+    }
+
+    public String addPoint() {
+        if (!bufferString.contains(".")) {
+            if (getCurrentOperation() == Operation.NONE) {
+                if (getFirstNumber() == null) {
+                    bufferString = "0.";
+                } else {
+                    bufferString += ".";
+                }
+            } else {
+                if (getSecondNumber() == null) {
+                    bufferString = "0.";
+                } else {
+                    bufferString += ".";
+                }
+            }
+            pointed = true;
+        }
+        return bufferString;
+    }
+
+    public String calculate() {
+        switch (getCurrentOperation()) {
+            case NONE:
+                break;
             case PLUS:
-                result = firstNumber + secondNumber;
-                return result;
+                setResult(getFirstNumber() + getSecondNumber());
+                break;
             case MINUS:
-                result = firstNumber - secondNumber;
-                return result;
+                setResult(getFirstNumber() - getSecondNumber());
+                break;
             case MULTIPLY:
-                result = firstNumber * secondNumber;
-                return result;
+                setResult(getFirstNumber() * getSecondNumber());
+                break;
             case DIVIDE:
-                result = firstNumber / secondNumber;
-                return result;
+                if (Math.abs(getSecondNumber()) < 0.0000000000001) {
+                    return "Error";
+                } else {
+                    setResult(getFirstNumber() / getSecondNumber());
+                }
+                break;
         }
-        return null;
+        DecimalFormat df = new DecimalFormat("#.#########");
+        bufferString = df.format(getResult());
+        setFirstNumber(getResult());
+        setResult(null);
+        return bufferString;
     }
 }

@@ -14,4 +14,18 @@
         <!-- Customize your theme here. -->
         <item name="android:windowFullscreen">true</item>
     </style>
+    <style name="MyTheme" parent="Theme.Homework02">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#2C4E24</item>
+        <item name="colorPrimaryVariant">#1F3719</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#CBD539</item>
+        <item name="colorSecondaryVariant">#6C7324</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowFullscreen">true</item>
+    </style>
 </resources>

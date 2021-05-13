@@ -1,14 +1,16 @@
 package com.hw.homework02;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.text.DecimalFormat;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     private static final String KEY_STATE = "CALC";
@@ -32,17 +34,33 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     private Calc calc = new Calc();
     private boolean lastTouchResult;
+    boolean nightMode;
+
+    private static final String PreferenceKey = "THEME";
+    private static final String MyThemeKey = "SET_MY_THEME";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getSetMyTheme()) {
+            setTheme(R.style.MyTheme);
+        } else {
+            setTheme(R.style.Theme_Homework02);
+        }
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
         initView();
+    }
+
+    private boolean getSetMyTheme() {
+        SharedPreferences pref = getSharedPreferences(PreferenceKey, MODE_PRIVATE);
+        return pref.getBoolean(MyThemeKey, false);
     }
 
     private void initView() {
         // Получить пользовательские элементы по идентификатору
+        buttonNightMode = findViewById(R.id.buttonNightMode);
+        buttonMyTheme = findViewById(R.id.buttonMyTheme);
         button0 = findViewById(R.id.button0);
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
@@ -63,234 +81,145 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.textView);
         buttonsInitOnClickListeners();
         lastTouchResult = false;
-    }
-
-    private void addDigit(String digit) {
-        if (calc.getCurrentOperation() == Calc.Operation.NONE) {
-            if (calc.getFirstNumber() == null && !calc.pointed) {
-                if (!digit.equals("0")) {
-                    calc.bufferString = digit;
-                } else return;
-            } else {
-                calc.bufferString += digit;
-            }
-            calc.setFirstNumber(Double.parseDouble(calc.bufferString));
-        } else {
-            if (calc.getSecondNumber() == null && !calc.pointed) {
-                if (!digit.equals("0")) {
-                    calc.bufferString = digit;
-                } else return;
-            } else {
-                calc.bufferString += digit;
-            }
-            calc.setSecondNumber(Double.parseDouble(calc.bufferString));
-        }
-        textView.setText(calc.bufferString);
+        nightMode = false;
     }
 
     private void buttonsInitOnClickListeners() {
-        button0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (lastTouchResult) {
-                    calc.clear();
-                }
-                addDigit("0");
-                lastTouchResult = false;
+        buttonNightMode.setOnClickListener(v -> {
+            if (nightMode) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             }
+            nightMode = !nightMode;
+            SharedPreferences pref = getSharedPreferences(PreferenceKey, MODE_PRIVATE);
+            pref.edit().putBoolean(MyThemeKey, false).apply();
         });
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (lastTouchResult) {
-                    calc.clear();
-                }
-                addDigit("1");
-                lastTouchResult = false;
-            }
+        buttonMyTheme.setOnClickListener(v -> {
+            SharedPreferences pref = getSharedPreferences(PreferenceKey, MODE_PRIVATE);
+            pref.edit().putBoolean(MyThemeKey, true).apply();
+            recreate();
         });
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (lastTouchResult) {
-                    calc.clear();
-                }
-                addDigit("2");
-                lastTouchResult = false;
-            }
-        });
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (lastTouchResult) {
-                    calc.clear();
-                }
-                addDigit("3");
-                lastTouchResult = false;
-            }
-        });
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (lastTouchResult) {
-                    calc.clear();
-                }
-                addDigit("4");
-                lastTouchResult = false;
-            }
-        });
-        button5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (lastTouchResult) {
-                    calc.clear();
-                }
-                addDigit("5");
-                lastTouchResult = false;
-            }
-        });
-        button6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (lastTouchResult) {
-                    calc.clear();
-                }
-                addDigit("6");
-                lastTouchResult = false;
-            }
-        });
-        button7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (lastTouchResult) {
-                    calc.clear();
-                }
-                addDigit("7");
-                lastTouchResult = false;
-            }
-        });
-        button8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (lastTouchResult) {
-                    calc.clear();
-                }
-                addDigit("8");
-                lastTouchResult = false;
-            }
-        });
-        button9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (lastTouchResult) {
-                    calc.clear();
-                }
-                addDigit("9");
-                lastTouchResult = false;
-            }
-        });
-        buttonPoint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!calc.bufferString.contains(".")) {
-                    if (calc.getCurrentOperation() == Calc.Operation.NONE) {
-                        if (calc.getFirstNumber() == null) {
-                            calc.bufferString = "0.";
-                        } else {
-                            calc.bufferString += ".";
-                        }
-                    } else {
-                        if (calc.getSecondNumber() == null) {
-                            calc.bufferString = "0.";
-                        } else {
-                            calc.bufferString += ".";
-                        }
-                    }
-                    calc.pointed = true;
-                    textView.setText(calc.bufferString);
-                }
-                lastTouchResult = false;
-            }
-        });
-        buttonClear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        button0.setOnClickListener(v -> {
+            if (lastTouchResult) {
                 calc.clear();
-                textView.setText("0");
-                lastTouchResult = false;
             }
+            textView.setText(calc.addDigit("0"));
+            lastTouchResult = false;
         });
-        buttonPlus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calc.setCurrentOperation(Calc.Operation.PLUS);
-                if (lastTouchResult) {
-                    calc.setSecondNumber(null);
-                }
-                lastTouchResult = false;
+        button1.setOnClickListener(v -> {
+            if (lastTouchResult) {
+                calc.clear();
             }
+            textView.setText(calc.addDigit("1"));
+            lastTouchResult = false;
         });
-        buttonMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calc.setCurrentOperation(Calc.Operation.MINUS);
-                if (lastTouchResult) {
-                    calc.setSecondNumber(null);
-                }
-                lastTouchResult = false;
+        button2.setOnClickListener(v -> {
+            if (lastTouchResult) {
+                calc.clear();
             }
+            textView.setText(calc.addDigit("2"));
+            lastTouchResult = false;
         });
-        buttonMultiply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calc.setCurrentOperation(Calc.Operation.MULTIPLY);
-                if (lastTouchResult) {
-                    calc.setSecondNumber(null);
-                }
-                lastTouchResult = false;
+        button3.setOnClickListener(v -> {
+            if (lastTouchResult) {
+                calc.clear();
             }
+            textView.setText(calc.addDigit("3"));
+            lastTouchResult = false;
         });
-        buttonDivide.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calc.setCurrentOperation(Calc.Operation.DIVIDE);
-                if (lastTouchResult) {
-                    calc.setSecondNumber(null);
-                }
-                lastTouchResult = false;
+        button4.setOnClickListener(v -> {
+            if (lastTouchResult) {
+                calc.clear();
             }
+            textView.setText(calc.addDigit("4"));
+            lastTouchResult = false;
         });
-        buttonResult.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!lastTouchResult) {
-                    switch (calc.getCurrentOperation()) {
-                        case NONE:
-                            break;
-                        case PLUS:
-                            calc.setResult(calc.getFirstNumber() + calc.getSecondNumber());
-                            break;
-                        case MINUS:
-                            calc.setResult(calc.getFirstNumber() - calc.getSecondNumber());
-                            break;
-                        case MULTIPLY:
-                            calc.setResult(calc.getFirstNumber() * calc.getSecondNumber());
-                            break;
-                        case DIVIDE:
-                            calc.setResult((Double) (calc.getFirstNumber() / calc.getSecondNumber()));
-                            break;
-                    }
-                    DecimalFormat df = new DecimalFormat("#.#########");
-                    calc.bufferString = df.format(calc.getResult());
-                    calc.setFirstNumber(calc.getResult());
-                    calc.setResult(null);
-                    textView.setText(calc.bufferString);
-                    lastTouchResult = true;
+        button5.setOnClickListener(v -> {
+            if (lastTouchResult) {
+                calc.clear();
+            }
+            textView.setText(calc.addDigit("5"));
+            lastTouchResult = false;
+        });
+        button6.setOnClickListener(v -> {
+            if (lastTouchResult) {
+                calc.clear();
+            }
+            textView.setText(calc.addDigit("6"));
+            lastTouchResult = false;
+        });
+        button7.setOnClickListener(v -> {
+            if (lastTouchResult) {
+                calc.clear();
+            }
+            textView.setText(calc.addDigit("7"));
+            lastTouchResult = false;
+        });
+        button8.setOnClickListener(v -> {
+            if (lastTouchResult) {
+                calc.clear();
+            }
+            textView.setText(calc.addDigit("8"));
+            lastTouchResult = false;
+        });
+        button9.setOnClickListener(v -> {
+            if (lastTouchResult) {
+                calc.clear();
+            }
+            textView.setText(calc.addDigit("9"));
+            lastTouchResult = false;
+        });
+
+        button_point.setOnClickListener(v -> {
+            textView.setText(calc.addPoint());
+            lastTouchResult = false;
+        });
+        button_clear.setOnClickListener(v -> {
+            calc.clear();
+            textView.setText("0");
+            lastTouchResult = false;
+        });
+        button_plus.setOnClickListener(v -> {
+            calc.setCurrentOperation(Calc.Operation.PLUS);
+            if (lastTouchResult) {
+                calc.setSecondNumber(null);
+            }
+            lastTouchResult = false;
+        });
+        button_minus.setOnClickListener(v -> {
+            calc.setCurrentOperation(Calc.Operation.MINUS);
+            if (lastTouchResult) {
+                calc.setSecondNumber(null);
+            }
+            lastTouchResult = false;
+        });
+        button_multiply.setOnClickListener(v -> {
+            calc.setCurrentOperation(Calc.Operation.MULTIPLY);
+            if (lastTouchResult) {
+                calc.setSecondNumber(null);
+            }
+            lastTouchResult = false;
+        });
+        button_divide.setOnClickListener(v -> {
+            calc.setCurrentOperation(Calc.Operation.DIVIDE);
+            if (lastTouchResult) {
+                calc.setSecondNumber(null);
+            }
+            lastTouchResult = false;
+        });
+        button_result.setOnClickListener(v -> {
+            if (!lastTouchResult && (calc.getSecondNumber() != null)) {
+                String calcResult = calc.calculate();
+                if (!calcResult.equals("Error")) {
+                    textView.setText(calcResult);
+                } else {
+                    Toast.makeText(this, R.string.errorString, Toast.LENGTH_SHORT).show();
                 }
+                lastTouchResult = true;
             }
         });
     }
-
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
@@ -303,35 +232,5 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         calc = savedInstanceState.getParcelable(KEY_STATE);
         textView.setText(calc.bufferString);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
     }
 }
