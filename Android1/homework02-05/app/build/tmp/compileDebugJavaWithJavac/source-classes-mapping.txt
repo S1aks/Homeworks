@@ -1,0 +1,11 @@
+com/hw/homework02/BuildConfig.java
+ com.hw.homework02.BuildConfig
+com/hw/homework02/Calc.java
+ com.hw.homework02.Calc
+ com.hw.homework02.Calc$1
+ com.hw.homework02.Calc$2
+ com.hw.homework02.Calc$Operation
+com/hw/homework02/SettingsActivity.java
+ com.hw.homework02.SettingsActivity
+com/hw/homework02/MainActivity.java
+ com.hw.homework02.MainActivity
