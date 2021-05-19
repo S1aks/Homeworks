@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settingsButtonText">Настройки</string>
+    <string name="errorString">Нельзя делить на ноль</string>
+    <string name="applyButtonText">Применить</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textViewWidth">300dp</dimen>
+    <dimen name="textViewMarginTop">100dp</dimen>
+    <dimen name="textSize">36sp</dimen>
+    <dimen name="buttonSize">70dp</dimen>
+    <dimen name="buttonMarginSide">40dp</dimen>
+    <dimen name="buttonMarginSideLast">70dp</dimen>
+    <dimen name="buttonMarginTop">15dp</dimen>
+    <dimen name="buttonCornerRadius">10dp</dimen>
+    <dimen name="layoutMargin">10dp</dimen>
+</resources>
