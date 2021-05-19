@@ -17,6 +17,14 @@
     <string name="point">.</string>
     <string name="result">=</string>
     <string name="divide">/</string>
+<<<<<<< HEAD
     <string name="imgDescription">img</string>
     <string name="clear">C</string>
+=======
+    <string name="clear">C</string>
+    <string name="errorString">Cannot be divided by zero</string>
+    <string name="imgDescription">img</string>
+    <string name="nightMode">☀</string>
+    <string name="myTheme">My Theme</string>
+>>>>>>> master
 </resources>

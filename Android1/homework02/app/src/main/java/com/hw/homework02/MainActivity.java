@@ -32,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     private Calc calc = new Calc();
     private boolean lastTouchResult;
+<<<<<<< HEAD
+=======
+    boolean nightMode;
+
+    private static final String PreferenceKey = "THEME";
+    private static final String MyThemeKey = "SET_MY_THEME";
+>>>>>>> master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,6 +196,7 @@ public class MainActivity extends AppCompatActivity {
                 lastTouchResult = false;
             }
         });
+<<<<<<< HEAD
         buttonPoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -210,15 +218,26 @@ public class MainActivity extends AppCompatActivity {
                     textView.setText(calc.bufferString);
                 }
                 lastTouchResult = false;
+=======
+        button8.setOnClickListener(v -> {
+            if (lastTouchResult) {
+                calc.clear();
+>>>>>>> master
             }
         });
+<<<<<<< HEAD
         buttonClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+=======
+        button9.setOnClickListener(v -> {
+            if (lastTouchResult) {
+>>>>>>> master
                 calc.clear();
                 textView.setText("0");
                 lastTouchResult = false;
             }
+<<<<<<< HEAD
         });
         buttonPlus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -228,8 +247,28 @@ public class MainActivity extends AppCompatActivity {
                     calc.setSecondNumber(null);
                 }
                 lastTouchResult = false;
+=======
+            textView.setText(calc.addDigit("9"));
+            lastTouchResult = false;
+        });
+
+        button_point.setOnClickListener(v -> {
+            textView.setText(calc.addPoint());
+            lastTouchResult = false;
+        });
+        button_clear.setOnClickListener(v -> {
+            calc.clear();
+            textView.setText("0");
+            lastTouchResult = false;
+        });
+        button_plus.setOnClickListener(v -> {
+            calc.setCurrentOperation(Calc.Operation.PLUS);
+            if (lastTouchResult) {
+                calc.setSecondNumber(null);
+>>>>>>> master
             }
         });
+<<<<<<< HEAD
         buttonMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -238,8 +277,15 @@ public class MainActivity extends AppCompatActivity {
                     calc.setSecondNumber(null);
                 }
                 lastTouchResult = false;
+=======
+        button_minus.setOnClickListener(v -> {
+            calc.setCurrentOperation(Calc.Operation.MINUS);
+            if (lastTouchResult) {
+                calc.setSecondNumber(null);
+>>>>>>> master
             }
         });
+<<<<<<< HEAD
         buttonMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -248,8 +294,15 @@ public class MainActivity extends AppCompatActivity {
                     calc.setSecondNumber(null);
                 }
                 lastTouchResult = false;
+=======
+        button_multiply.setOnClickListener(v -> {
+            calc.setCurrentOperation(Calc.Operation.MULTIPLY);
+            if (lastTouchResult) {
+                calc.setSecondNumber(null);
+>>>>>>> master
             }
         });
+<<<<<<< HEAD
         buttonDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -258,8 +311,15 @@ public class MainActivity extends AppCompatActivity {
                     calc.setSecondNumber(null);
                 }
                 lastTouchResult = false;
+=======
+        button_divide.setOnClickListener(v -> {
+            calc.setCurrentOperation(Calc.Operation.DIVIDE);
+            if (lastTouchResult) {
+                calc.setSecondNumber(null);
+>>>>>>> master
             }
         });
+<<<<<<< HEAD
         buttonResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -286,12 +346,24 @@ public class MainActivity extends AppCompatActivity {
                     calc.setResult(null);
                     textView.setText(calc.bufferString);
                     lastTouchResult = true;
+=======
+        button_result.setOnClickListener(v -> {
+            if (!lastTouchResult && (calc.getSecondNumber() != null)) {
+                String calcResult = calc.calculate();
+                if (!calcResult.equals("Error")) {
+                    textView.setText(calcResult);
+                } else {
+                    Toast.makeText(this, R.string.errorString, Toast.LENGTH_SHORT).show();
+>>>>>>> master
                 }
             }
         });
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -303,35 +375,5 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         calc = savedInstanceState.getParcelable(KEY_STATE);
         textView.setText(calc.bufferString);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
     }
 }

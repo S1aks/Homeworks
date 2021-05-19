@@ -27,7 +27,11 @@
         android:background="#FFFFFF"
         android:gravity="end"
         android:text="@string/textTextView"
+<<<<<<< HEAD
         android:textSize="36sp"
+=======
+        android:textSize="@dimen/textSize"
+>>>>>>> master
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -63,6 +67,7 @@
         android:layout_height="70dp"
         android:layout_marginTop="15dp"
         android:text="@string/_3"
+<<<<<<< HEAD
         android:textSize="36sp"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toStartOf="@+id/buttonPlus"
@@ -78,6 +83,23 @@
         android:text="@string/plus"
         android:textSize="36sp"
         app:cornerRadius="10dp"
+=======
+        android:textSize="@dimen/textSize"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        app:layout_constraintEnd_toStartOf="@+id/button_plus"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_plus"
+        android:layout_width="@dimen/buttonSize"
+        android:layout_height="@dimen/buttonSize"
+        android:layout_marginTop="@dimen/buttonMarginTop"
+        android:layout_marginEnd="@dimen/buttonMarginSide"
+        android:text="@string/plus"
+        android:textSize="@dimen/textSize"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+>>>>>>> master
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button3"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -110,6 +132,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:text="@string/_6"
+<<<<<<< HEAD
         android:textSize="36sp"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toStartOf="@+id/buttonMinus"
@@ -124,6 +147,22 @@
         android:text="@string/minus"
         android:textSize="36sp"
         app:cornerRadius="10dp"
+=======
+        android:textSize="@dimen/textSize"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        app:layout_constraintEnd_toStartOf="@+id/button_minus"
+        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_minus"
+        android:layout_width="@dimen/buttonSize"
+        android:layout_height="@dimen/buttonSize"
+        android:layout_marginEnd="@dimen/buttonMarginSide"
+        android:text="@string/minus"
+        android:textSize="@dimen/textSize"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+>>>>>>> master
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button6"
         app:layout_constraintTop_toBottomOf="@+id/buttonPlus" />
@@ -156,6 +195,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:text="@string/_9"
+<<<<<<< HEAD
         android:textSize="36sp"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toStartOf="@+id/buttonMultiply"
@@ -170,6 +210,22 @@
         android:text="@string/multiply"
         android:textSize="36sp"
         app:cornerRadius="10dp"
+=======
+        android:textSize="@dimen/textSize"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        app:layout_constraintEnd_toStartOf="@+id/button_multiply"
+        app:layout_constraintStart_toEndOf="@+id/button8"
+        app:layout_constraintTop_toBottomOf="@+id/button6" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_multiply"
+        android:layout_width="@dimen/buttonSize"
+        android:layout_height="@dimen/buttonSize"
+        android:layout_marginEnd="@dimen/buttonMarginSide"
+        android:text="@string/multiply"
+        android:textSize="@dimen/textSize"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+>>>>>>> master
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button9"
         app:layout_constraintTop_toBottomOf="@+id/buttonMinus" />
@@ -180,6 +236,7 @@
         android:layout_height="70dp"
         android:layout_marginStart="140dp"
         android:text="@string/_0"
+<<<<<<< HEAD
         android:textSize="36sp"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toStartOf="@+id/buttonPoint"
@@ -228,6 +285,56 @@
         android:text="@string/result"
         android:textSize="36sp"
         app:cornerRadius="10dp"
+=======
+        android:textSize="@dimen/textSize"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        app:layout_constraintEnd_toStartOf="@+id/button_point"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button7" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_point"
+        android:layout_width="@dimen/buttonSize"
+        android:layout_height="@dimen/buttonSize"
+        android:text="@string/point"
+        android:textSize="@dimen/textSize"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        app:layout_constraintEnd_toStartOf="@+id/button_clear"
+        app:layout_constraintStart_toEndOf="@+id/button0"
+        app:layout_constraintTop_toBottomOf="@+id/button8" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_clear"
+        android:layout_width="@dimen/buttonSize"
+        android:layout_height="@dimen/buttonSize"
+        android:text="@string/clear"
+        android:textSize="@dimen/textSize"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        app:layout_constraintEnd_toStartOf="@+id/button_divide"
+        app:layout_constraintStart_toEndOf="@+id/button_point"
+        app:layout_constraintTop_toBottomOf="@+id/button9" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_divide"
+        android:layout_width="@dimen/buttonSize"
+        android:layout_height="@dimen/buttonSize"
+
+        android:text="@string/divide"
+        android:textSize="@dimen/textSize"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        app:layout_constraintEnd_toStartOf="@id/button_result"
+        app:layout_constraintStart_toEndOf="@+id/button_clear"
+        app:layout_constraintTop_toBottomOf="@+id/button_multiply" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_result"
+        android:layout_width="@dimen/buttonSize"
+        android:layout_height="@dimen/buttonSize"
+        android:layout_marginEnd="@dimen/buttonMarginSideLast"
+        android:text="@string/result"
+        android:textSize="@dimen/textSize"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+>>>>>>> master
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buttonMultiply"/>
 
